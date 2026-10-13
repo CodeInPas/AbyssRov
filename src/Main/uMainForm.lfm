@@ -1,0 +1,427 @@
+object MainForm: TMainForm
+  Left = 250
+  Height = 720
+  Top = 100
+  Width = 1280
+  Caption = 'ABYSS-ROV: Deep Trench'
+  ClientHeight = 720
+  ClientWidth = 1280
+  Color = clBlack
+  Menu = MainMenu1
+  LCLVersion = '4.8.0.0'
+  WindowState = wsMaximized
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  object pnlControlBoard: TPanel
+    Cursor = crHandPoint
+    Left = 960
+    Height = 720
+    Top = 0
+    Width = 320
+    Align = alRight
+    BevelOuter = bvNone
+    ClientHeight = 720
+    ClientWidth = 320
+    Color = clBlack
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    object lblControlTitle: TLabel
+      Left = 5
+      Height = 24
+      Top = 5
+      Width = 310
+      Align = alTop
+      Alignment = taCenter
+      BorderSpacing.Around = 5
+      Caption = 'CONTROL BOARD && SYSTEMS'
+      Font.Color = clRed
+      Font.Height = -21
+      Font.Name = 'Consolas'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object memoLog: TMemo
+      Left = 5
+      Height = 329
+      Top = 34
+      Width = 310
+      Align = alClient
+      BorderSpacing.Around = 5
+      BorderStyle = bsNone
+      Color = 1380101
+      Font.Color = clAqua
+      Font.Height = -12
+      Font.Name = 'Consolas'
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 1
+    end
+    object pnControl: TPanel
+      Left = 0
+      Height = 304
+      Top = 368
+      Width = 320
+      Align = alBottom
+      BevelOuter = bvNone
+      ClientHeight = 304
+      ClientWidth = 320
+      Color = clBlack
+      ParentBackground = False
+      ParentColor = False
+      TabOrder = 0
+      object lblThrust: TLabel
+        Left = 6
+        Height = 15
+        Top = 21
+        Width = 308
+        Align = alTop
+        BorderSpacing.Around = 6
+        Caption = 'THRUSTER OUTPUT [50%]'
+        Font.Color = clAqua
+        ParentColor = False
+        ParentFont = False
+      end
+      object tbThrust: TTwLazUITrackBar
+        Cursor = crHandPoint
+        Left = 6
+        Height = 24
+        Top = 42
+        Width = 308
+        Align = alTop
+        BorderSpacing.Around = 6
+        Position = 50
+        OnChange = tbThrustChange
+      end
+      object lblSteering: TLabel
+        Left = 6
+        Height = 15
+        Top = 72
+        Width = 308
+        Align = alTop
+        BorderSpacing.Around = 6
+        Caption = 'STEERING [CENTER]'
+        Font.Color = clAqua
+        ParentColor = False
+        ParentFont = False
+      end
+      object tbSteering: TTwLazUITrackBar
+        Cursor = crHandPoint
+        Left = 6
+        Height = 24
+        Top = 93
+        Width = 308
+        Align = alTop
+        BorderSpacing.Around = 6
+        Position = 50
+        ThemeColor = twSuccess
+        OnChange = tbSteeringChange
+      end
+      object lblSonarRange: TLabel
+        Left = 6
+        Height = 15
+        Top = 123
+        Width = 308
+        Align = alTop
+        BorderSpacing.Around = 6
+        Caption = 'SONAR PING RANGE'
+        Font.Color = clAqua
+        ParentColor = False
+        ParentFont = False
+      end
+      object tbSonarRange: TTwLazUITrackBar
+        Cursor = crHandPoint
+        Left = 6
+        Height = 24
+        Top = 144
+        Width = 308
+        Align = alTop
+        BorderSpacing.Around = 6
+        Min = 100
+        Max = 1000
+        Position = 350
+        ThemeColor = twWarning
+      end
+      object btnToggleSonar: TBsButton
+        AnchorSideLeft.Control = pnControl
+        AnchorSideTop.Control = tbSonarRange
+        AnchorSideTop.Side = asrBottom
+        Cursor = crHandPoint
+        Left = 3
+        Height = 38
+        Top = 174
+        Width = 162
+        ThemeColor = btcSuccess
+        BorderSpacing.Left = 3
+        Caption = 'ACTIVE SONAR [OFF]'
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Quality = fqCleartypeNatural
+        ParentFont = False
+        TabOrder = 3
+        OnClick = btnToggleSonarClick
+      end
+      object btnDataLink: TBsButton
+        AnchorSideLeft.Control = btnToggleSonar
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = tbSonarRange
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = pnControl
+        AnchorSideRight.Side = asrBottom
+        Cursor = crHandPoint
+        Left = 169
+        Height = 38
+        Top = 174
+        Width = 146
+        ThemeColor = btcSecondary
+        Anchors = [akTop, akLeft, akRight]
+        BorderSpacing.Left = 4
+        BorderSpacing.Right = 5
+        Caption = 'DATA LINK [CONNECT]'
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Quality = fqCleartypeNatural
+        ParentFont = False
+        TabOrder = 4
+        OnClick = btnDataLinkClick
+      end
+      object btnGarage: TBsButton
+        AnchorSideLeft.Control = pnControl
+        AnchorSideTop.Control = btnToggleSonar
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = pnControl
+        AnchorSideRight.Side = asrBottom
+        Cursor = crHandPoint
+        Left = 5
+        Height = 38
+        Top = 217
+        Width = 310
+        ThemeColor = btcDanger
+        Anchors = [akTop, akLeft, akRight]
+        BorderSpacing.Left = 5
+        BorderSpacing.Top = 5
+        BorderSpacing.Right = 5
+        Caption = 'ACCESS HANGAR [UPGRADES]'
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Quality = fqCleartypeNatural
+        ParentFont = False
+        TabOrder = 5
+        OnClick = btnGarageClick
+      end
+      object btnDeployDecoy: TBsButton
+        AnchorSideLeft.Control = pnControl
+        AnchorSideTop.Control = btnGarage
+        AnchorSideTop.Side = asrBottom
+        Cursor = crHandPoint
+        Left = 5
+        Height = 38
+        Top = 259
+        Width = 162
+        ThemeColor = btcSuccess
+        BorderSpacing.Left = 5
+        BorderSpacing.Top = 4
+        Caption = 'DEPLOY DECOY [Q]'
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Quality = fqCleartypeNatural
+        ParentFont = False
+        TabOrder = 6
+        OnClick = btnDeployDecoyClick
+      end
+      object btnFireEMP: TBsButton
+        AnchorSideTop.Control = btnGarage
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = pnControl
+        AnchorSideRight.Side = asrBottom
+        Cursor = crHandPoint
+        Left = 170
+        Height = 38
+        Top = 259
+        Width = 144
+        ThemeColor = btcWarning
+        Anchors = [akTop, akRight]
+        BorderSpacing.Top = 4
+        BorderSpacing.Right = 6
+        Caption = 'FIRE EMP [E]'
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Quality = fqCleartypeNatural
+        ParentFont = False
+        TabOrder = 7
+        OnClick = btnFireEMPClick
+      end
+      object Label1: TLabel
+        Left = 0
+        Height = 15
+        Top = 0
+        Width = 320
+        Align = alTop
+        Alignment = taCenter
+        Caption = 'ROV CONTROL (WASD / SLIDERS)'
+        Font.Color = clYellow
+        ParentFont = False
+      end
+    end
+    object btnExtract: TBsButton
+      AnchorSideTop.Control = btnGarage
+      AnchorSideTop.Side = asrBottom
+      Cursor = crHandPoint
+      Left = 5
+      Height = 38
+      Top = 677
+      Width = 310
+      Align = alBottom
+      BorderSpacing.Around = 5
+      Caption = 'Extract'
+      Font.Height = -16
+      Font.Name = 'Segoe UI'
+      Font.Quality = fqCleartypeNatural
+      ParentFont = False
+      TabOrder = 2
+      OnClick = btnExtractClick
+    end
+  end
+  object pnlTerminal: TPanel
+    Left = 5
+    Height = 710
+    Top = 5
+    Width = 950
+    Align = alClient
+    BorderSpacing.Around = 5
+    BevelOuter = bvNone
+    ClientHeight = 710
+    ClientWidth = 950
+    Color = clBlack
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 1
+    object lblTerminalTitle: TLabel
+      Left = 16
+      Height = 24
+      Top = 16
+      Width = 156
+      Caption = 'MAIN TERMINAL'
+      Font.Color = clAqua
+      Font.Height = -21
+      Font.Name = 'Consolas'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object Panel2: TPanel
+      Left = 0
+      Height = 710
+      Top = 0
+      Width = 950
+      Align = alClient
+      BevelOuter = bvNone
+      ClientHeight = 710
+      ClientWidth = 950
+      Color = clBlack
+      ParentBackground = False
+      ParentColor = False
+      TabOrder = 0
+      object pbSonar: TPaintBox
+        Left = 4
+        Height = 702
+        Top = 4
+        Width = 942
+        Align = alClient
+        BorderSpacing.Around = 4
+        Color = clBlack
+        ParentColor = False
+        OnPaint = pbSonarPaint
+      end
+      object pnlCameraFrame: TPanel
+        AnchorSideRight.Control = Panel2
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = Panel2
+        AnchorSideBottom.Side = asrBottom
+        Left = 707
+        Height = 145
+        Top = 556
+        Width = 234
+        Anchors = [akRight, akBottom]
+        BorderSpacing.Right = 9
+        BorderSpacing.Bottom = 9
+        BevelOuter = bvNone
+        ClientHeight = 145
+        ClientWidth = 234
+        Color = 12308173
+        ParentBackground = False
+        ParentColor = False
+        TabOrder = 0
+        object pbCamera: TPaintBox
+          Left = 7
+          Height = 131
+          Top = 7
+          Width = 220
+          Align = alClient
+          BorderSpacing.Around = 7
+          OnClick = pbCameraClick
+          OnPaint = pbCameraPaint
+        end
+      end
+    end
+  end
+  object UIConn: TSQLite3Connection
+    Connected = False
+    LoginPrompt = False
+    KeepConnection = False
+    Transaction = UITrans
+    AlwaysUseBigint = False
+    Left = 584
+    Top = 40
+  end
+  object UITrans: TSQLTransaction
+    Active = False
+    Database = UIConn
+    Left = 656
+    Top = 40
+  end
+  object UIQuery: TSQLQuery
+    PacketRecords = -1
+    FieldDefs = <>
+    Database = UIConn
+    Transaction = UITrans
+    Params = <>
+    Macros = <>
+    Left = 728
+    Top = 40
+  end
+  object dsAnomalies: TDataSource
+    DataSet = UIQuery
+    Left = 800
+    Top = 40
+  end
+  object MainMenu1: TMainMenu
+    Left = 737
+    Top = 373
+    object MenuItem1: TMenuItem
+      Caption = 'Application'
+      object mnTerminate: TMenuItem
+        Caption = 'Exit'
+        OnClick = mnTerminateClick
+      end
+    end
+    object MenuItem2: TMenuItem
+      Caption = 'Help'
+      object mnTutorial: TMenuItem
+        Caption = 'Tutorial'
+        object mnTutorID: TMenuItem
+          Caption = 'Tutorial ID'
+          OnClick = mnTutorIDClick
+        end
+        object mnTutorEN: TMenuItem
+          Caption = 'Tutorial EN'
+          OnClick = mnTutorENClick
+        end
+      end
+      object MenuItem5: TMenuItem
+        Caption = 'About Me'
+      end
+    end
+  end
+end

@@ -1,0 +1,87 @@
+object AnomaliesForm: TAnomaliesForm
+  Left = 400
+  Height = 400
+  Top = 200
+  Width = 585
+  BorderStyle = bsDialog
+  Caption = 'TACTICAL LOGS: EXTRACTED ANOMALIES'
+  ClientHeight = 400
+  ClientWidth = 585
+  Color = 1380101
+  Font.Color = clWhite
+  Font.Name = 'Consolas'
+  Position = poMainFormCenter
+  LCLVersion = '4.8.0.0'
+  OnCreate = FormCreate
+  object dbgPopupAnomalies: TDBGrid
+    Left = 5
+    Height = 347
+    Top = 5
+    Width = 575
+    Align = alClient
+    AlternateColor = 2302742
+    AutoFillColumns = True
+    BorderSpacing.Around = 5
+    BorderStyle = bsNone
+    Color = 1380101
+    Columns = <>
+    DataSource = dsPopupAnomalies
+    FixedColor = 2302742
+    Font.Color = clWhite
+    Font.Name = 'Consolas'
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgCancelOnExit]
+    ParentFont = False
+    ReadOnly = True
+    Scrollbars = ssVertical
+    TabOrder = 0
+  end
+  object btnClosePopup: TBsButton
+    AnchorSideTop.Side = asrBottom
+    Cursor = crHandPoint
+    Left = 5
+    Height = 38
+    Top = 357
+    Width = 575
+    ThemeColor = btcSuccess
+    Align = alBottom
+    BorderSpacing.Around = 5
+    Caption = 'Close'
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    ParentFont = False
+    TabOrder = 1
+    OnClick = btnClosePopupClick
+    OnMouseEnter = BtnMouseEnter
+    OnMouseLeave = BtnMouseLeave
+  end
+  object PopupConn: TSQLite3Connection
+    Connected = False
+    LoginPrompt = False
+    KeepConnection = False
+    Transaction = PopupTrans
+    AlwaysUseBigint = False
+    Left = 40
+    Top = 280
+  end
+  object PopupTrans: TSQLTransaction
+    Active = False
+    Database = PopupConn
+    Left = 110
+    Top = 280
+  end
+  object PopupQuery: TSQLQuery
+    PacketRecords = -1
+    FieldDefs = <>
+    Database = PopupConn
+    Transaction = PopupTrans
+    Params = <>
+    Macros = <>
+    Left = 180
+    Top = 280
+  end
+  object dsPopupAnomalies: TDataSource
+    DataSet = PopupQuery
+    Left = 250
+    Top = 280
+  end
+end

@@ -1,0 +1,191 @@
+object GarageForm: TGarageForm
+  Left = 400
+  Height = 550
+  Top = 150
+  Width = 550
+  BorderStyle = bsDialog
+  Caption = 'HANGAR: ROV UPGRADES'
+  ClientHeight = 550
+  ClientWidth = 550
+  Color = 1380101
+  Font.Color = clWhite
+  Font.Name = 'Consolas'
+  OnCreate = FormCreate
+  Position = poMainFormCenter
+  LCLVersion = '2.2.0.4'
+  object lblTitle: TLabel
+    Left = 20
+    Height = 25
+    Top = 20
+    Width = 312
+    Caption = 'ROV ENGINEERING & UPGRADES'
+    Font.Color = clAqua
+    Font.Height = -21
+    Font.Name = 'Consolas'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object lblPoints: TLabel
+    Left = 20
+    Height = 19
+    Top = 60
+    Width = 234
+    Caption = 'RESEARCH POINTS (RP): 0'
+    Font.Color = clYellow
+    Font.Height = -16
+    Font.Name = 'Consolas'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object lblHullInfo: TLabel
+    Left = 20
+    Height = 15
+    Top = 100
+    Width = 350
+    Caption = 'HULL REINFORCEMENT [Level 1] (Cost: 100 RP)'
+    ParentColor = False
+  end
+  object btnUpgradeHull: TPanel
+    Cursor = crHandPoint
+    Left = 20
+    Height = 35
+    Top = 120
+    Width = 510
+    BevelOuter = bvNone
+    BorderStyle = bsSingle
+    Caption = 'UPGRADE HULL'
+    Color = 1380101
+    Font.Color = clAqua
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 0
+    OnClick = btnUpgradeHullClick
+    OnMouseEnter = BtnMouseEnter
+    OnMouseLeave = BtnMouseLeave
+  end
+  object lblBatteryInfo: TLabel
+    Left = 20
+    Height = 15
+    Top = 170
+    Width = 350
+    Caption = 'BATTERY EFFICIENCY [Level 1] (Cost: 75 RP)'
+    ParentColor = False
+  end
+  object btnUpgradeBattery: TPanel
+    Cursor = crHandPoint
+    Left = 20
+    Height = 35
+    Top = 190
+    Width = 510
+    BevelOuter = bvNone
+    BorderStyle = bsSingle
+    Caption = 'UPGRADE BATTERY'
+    Color = 1380101
+    Font.Color = clAqua
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 1
+    OnClick = btnUpgradeBatteryClick
+    OnMouseEnter = BtnMouseEnter
+    OnMouseLeave = BtnMouseLeave
+  end
+  object lblThrusterInfo: TLabel
+    Left = 20
+    Height = 15
+    Top = 240
+    Width = 350
+    Caption = 'THRUSTER POWER [Level 1] (Cost: 90 RP)'
+    ParentColor = False
+  end
+  object btnUpgradeThruster: TPanel
+    Cursor = crHandPoint
+    Left = 20
+    Height = 35
+    Top = 260
+    Width = 510
+    BevelOuter = bvNone
+    BorderStyle = bsSingle
+    Caption = 'UPGRADE THRUSTER'
+    Color = 1380101
+    Font.Color = clAqua
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 2
+    OnClick = btnUpgradeThrusterClick
+    OnMouseEnter = BtnMouseEnter
+    OnMouseLeave = BtnMouseLeave
+  end
+  object lblDecoyInfo: TLabel
+    Left = 20
+    Height = 15
+    Top = 310
+    Width = 350
+    Caption = 'ACOUSTIC DECOY MOD [Level 0] (Cost: 120 RP)'
+    ParentColor = False
+  end
+  object btnUpgradeDecoy: TPanel
+    Cursor = crHandPoint
+    Left = 20
+    Height = 35
+    Top = 330
+    Width = 510
+    BevelOuter = bvNone
+    BorderStyle = bsSingle
+    Caption = 'INSTALL / UPGRADE DECOY'
+    Color = 1380101
+    Font.Color = clAqua
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 3
+    OnClick = btnUpgradeDecoyClick
+    OnMouseEnter = BtnMouseEnter
+    OnMouseLeave = BtnMouseLeave
+  end
+  object lblEMPInfo: TLabel
+    Left = 20
+    Height = 15
+    Top = 380
+    Width = 350
+    Caption = 'EMP BURST MOD [Level 0] (Cost: 150 RP)'
+    ParentColor = False
+  end
+  object btnUpgradeEMP: TPanel
+    Cursor = crHandPoint
+    Left = 20
+    Height = 35
+    Top = 400
+    Width = 510
+    BevelOuter = bvNone
+    BorderStyle = bsSingle
+    Caption = 'INSTALL / UPGRADE EMP BURST'
+    Color = 1380101
+    Font.Color = clAqua
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 4
+    OnClick = btnUpgradeEMPClick
+    OnMouseEnter = BtnMouseEnter
+    OnMouseLeave = BtnMouseLeave
+  end
+  object btnClose: TPanel
+    Cursor = crHandPoint
+    Left = 20
+    Height = 35
+    Top = 485
+    Width = 510
+    BevelOuter = bvNone
+    BorderStyle = bsSingle
+    Caption = 'RETURN TO MAIN TERMINAL'
+    Color = 1380101
+    Font.Color = clYellow
+    Font.Style = [fsBold]
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 5
+    OnClick = btnCloseClick
+    OnMouseEnter = BtnMouseEnter
+    OnMouseLeave = BtnMouseLeave
+  end
+end
