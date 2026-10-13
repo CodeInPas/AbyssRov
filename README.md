@@ -1,6 +1,3 @@
-# AbyssRov
-ABYSS-ROV: Deep Trench is an atmospheric, tension-driven deep-sea telemetry simulator and acoustic survival game developed with Lazarus / Free Pascal.
-
 # ABYSS-ROV: Deep Trench
 
 [![Lazarus](https://img.shields.io/badge/Lazarus-IDE%204.8+-00599C?logo=lazarus&logoColor=white)](https://www.lazarus-ide.org/)
